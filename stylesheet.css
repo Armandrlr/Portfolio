@@ -1,166 +1,169 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;1,100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-
-:root {
-	--primary: #ccaa10;
-	--secondary: #DCB609;
+@font-face {
+	font-family: 'Cinzel';
+	src: url('assets/fonts/Cinzel-Regular.otf');
+	font-weight: normal;
+}
+@font-face {
+	font-family: 'Sarkowik';
+	src: url('assets/fonts/Sarkowik.ttf');
+	font-weight: normal;
+}
+@font-face {
+	font-family: 'CaviarDreams';
+	src: url('assets/fonts/CaviarDreams.ttf');
+	font-weight: normal;
 }
 
 body {
-	margin: 0px;
+	margin: 0;
 }
 
-
-/* Landing */
-
-div.landing {
-	background-color: var(--primary);
-	display: flex;
-	height: calc(100vh - 70px);
-}
-
-.landing .logo {
-	position: absolute; top: 20px; left: 20px;
-	height: 150px;
-}
-
-.landing h1 {
-	margin: auto;
-	color:  white;
-	font-family: lato, arial, sans-serif;
-	font-size: 4em;
-	text-transform: uppercase;
-}
-
-.landing .social {
-	position: absolute; top: 20px; left: calc(50vw - 50px);
-	width: 100px;
-	display: flex; justify-content: center;
-}
-
-.landing .social a, header .social a {
-	transition: .1s;
-}
-
-.landing .social a:hover, header .social a:hover {
-	transform: scale(1.1);
-}
-
-.landing .social a i {
-	margin-right: 10px; margin-left: 10px;
-	color: white;
-	font-size: 1.5em;
-}
-
-
-/* Header */
-
-header {
-	position: sticky; top: 0px; left: 0px;
-	height: 70px;
-	transition: .25s;
-	display: flex;
-	justify-content: left;
-	align-items: center;
-	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
-}
-
-header .logo-link {
-	opacity: 0;
-	display: block;
-	height: 60px;
-	margin-left: 20px;
-	transition: .5s;
-}
-
-header .logo-link .logo {
-	height: 60px;
-}
-
-header.top .logo-link, header.top .title-link h1, header.top .social {
-	opacity: 1;
-}
-
-header .title-link {
-	margin-left: 10px;
-}
-
-header .title-link h1 {
-	opacity: 0;
-	color: var(--primary);
-	font-family: lato, arial, sans-serif;
-	font-size: 2em;
-	text-transform: uppercase;
-	transition: .5s;
-}
-
-.header-link {
-	text-decoration: none;
-	transition: .5s;
-}
-
-.header-link:hover {
-	filter: brightness(1.1);
-}
-
-
-header .social {
-	opacity: 0;
-	transition: .5s;
-	position: absolute; top: calc(35px - .5em); left: calc(50vw - 50px);
-	width: 100px;
-	display: flex; justify-content: center;
-}
-
-header .social a i {
-	margin-right: 5px; margin-left: 5px;
-	color: var(--primary);
-	font-size: 1em;
-}
-
-header nav {
-	position: absolute; right: 0px; top: 0px;
-	display: flex;
-	justify-content: right;
-	align-items: center;
-}
-
-header nav a {
-	display: block;
-	font-family: lato, arial, sans-serif;
-	font-size: 1.5em;
-	text-decoration: none;
-	color: var(--primary);
-	height: 1.25em;
-	vertical-align: middle;
-	padding-top: calc(32px - .5em);
-	padding-bottom: calc(33px - .5em);
-	line-height: normal;
-	padding-right: 20px; padding-left: 20px;
-	transition: .25s;
-}
-
-/* header nav a::after {
-    content: "";
-    display: block;
-    height: 2px;
-    width: 0%;
-    background-color: var(--primary);
-    margin: 0px 50%;
-    transition: 0.2s;
-}
-
-header nav a:hover::after {
-    content: "";
-    display: block;
-    height: 2px;
-    width: 70%;
-    background-color: var(--primary);
-    margin: 0px 15%;
-    transition: 0.2s;
+/* #landing::before {
+	content: url('assets/toul-ru.jpg');
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0; left: 0;
+	z-index: -1;
 } */
 
-header nav a:hover {
+
+
+/* Landing Page */
+
+#landing {
+	background-color: #fff;
+	background-image: url('assets/toul-ru.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#landing {
+	position: relative;
+	width: 100%; height: 109.2vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	color: white;
-	background-color: var(--primary);
+	mask: url('assets/gradient-bottom.svg') bottom center / cover no-repeat;
+	-webkit-mask: url('assets/gradient-bottom.svg') bottom center / cover no-repeat;
+}
+
+#landing .title {
+	margin: 5vh 0 10vh 0;
+}
+
+#landing h1 {
+	font-family: 'Sarkowik';
+	font-size: 20vh;
+	font-weight: normal;
+	margin: 0;
+	text-align: center;
+}
+
+#landing .title hr {
+	border: none;
+	border-top: .75vh solid white;
+	margin: 10px 0; margin-left: -25%;
+	width: 150%;
+}
+
+#landing h2 {
+	font-family: 'CaviarDreams';
+	font-size: 10vh;
+	font-weight: normal;
+	margin: 0;
+	text-align: center;
+}
+
+#landing .subtitle {
+	font-family: 'Cinzel';
+	font-size: 6vh;
+	color: #fff;
+	text-align: center;
+	margin: 0;
+}
+
+#landing nav ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	list-style: none;
+	margin: 0; padding: 0;
+}
+
+#landing nav ul li {
+	margin: 0 10px;
+}
+
+#landing nav ul li a {
+	font-family: 'Cinzel';
+	color: #fff;
+	text-decoration: none;
+	padding: 2vh;
+	border-radius: 100px;
+	background-color: rgba(255, 255, 255, 0.5);
+	font-size: 4vh;
+	transition: backgroun .5;
+}
+
+#landing nav ul li a:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+
+
+/* Prestations */
+
+#prestations {
+	position: relative;
+}
+
+#prestations h1 {
+	position: absolute;
+	top: 0; left: 0; right: 0;
+	text-align: center;
+	font-family: 'Cinzel';
+	font-size: 7vh;
+	font-weight: normal;
+	margin: 0;
+}
+
+#film-institutionnel {
+	background-image: url('assets/cala-beltran.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	mask: url('assets/mask.svg') 0 0 / 100% 100%;
+	-webkit-mask: url('assets/mask.svg') 0 0 / 100% 100%;
+	padding: 20px 0;
+	height: 80vh;
+	display: flex;
+}
+
+#film-institutionnel .content {
+	background: rgba(255, 255, 255, 0.5);
+	margin-top: auto; margin-bottom: auto;
+	mask: url('assets/mask2.svg') 0 0 / 100% 100%;
+	-webkit-mask: url('assets/mask2.svg') 0 0 / 100% 100%;
+	padding: 40px; padding-right: 5vw;
+	width: 44vw; height: 25vw;
+}
+
+#film-institutionnel .content h2 {
+	font-family: 'CaviarDreams';
+	font-size: 7vh;
+	font-weight: normal;
+	margin: 0;
+	width: 10px;
+}
+
+#film-institutionnel .content p {
+	font-family: calibri;
+	font-size: 1.5em;
+	font-weight: normal;
+	margin: 0; margin-top: 20px; margin-left: 40px;
 }
