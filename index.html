@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/e348efd640.js" crossorigin="anonymous"></script>
+	<script src="script.js"></script>
 	<link rel="stylesheet" href="stylesheet.css">
 	<title>Fraudon</title>
 </head>
@@ -22,15 +24,53 @@
 				<li><a href="#prestations">Prestations</a></li>
 			</ul>
 		</nav>
+		<div class="socials">
+			<a href="https://www.facebook.com/profile.php?id=100079093530784" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+			<a href="https://instagram.com/la_cap_horniere" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+			<a href="https://youtube.com/channel/UCw1JjkUTXC7I7khiAYZ77RA" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+		</div>
 	</section>
+	
+	<section id="realisations">
+		<h1>Réalisations</h1>
+		<div class="ytb-gallery" data-playlist="realisations"></div>
+		<div class="img-gallery" data-img-nb="15" data-subdirectory="photos/"></div>
+	</section>
+
 	<section id="prestations">
 		<h1>Prestations</h1>
-		<div id="film-institutionnel">
+		<div id="film-institutionnel" class="prestation">
 			<div class="content">
 				<h2>Film Institutionnel</h2>
 				<p>Présentez votre entreprise pour vous faire connaître ou gagner en notoriété sur vos différents canaux de communication, les médias et les événements.</p>
 			</div>
 		</div>
+		<div id="film-publicitaire" class="prestation">
+			<div class="content">
+				<h2>Film Publicitaire</h2>
+				<p>Pilier de votre stratégie marketing, cette vidéo promeut votre activité et vos offres lors de salons, sur vos pages de vente et/ou sur vos réseaux sociaux.</p>
+			</div>
+		</div>
+		<div id="film-evenementiel" class="prestation">
+			<div class="content">
+				<h2>Film Événementiel</h2>
+				<p>En amont, le teaser suscite l’envie de participer à votre événement. Prolongez-le avec un aftermovie pour marquer les esprits et faire parler de vous.</p>
+			</div>
+		</div>
 	</section>
+
+	<footer>
+		<p>&copy;2022 - Armand Roulier</p>
+		<p>Développé avec ❤ par Mathurin Roulier</p>	
+	</footer>
+
+	<script>
+		for (i = 0; i < document.querySelectorAll(".img-gallery").length; i++) {
+			imgGallery(document.querySelectorAll(".img-gallery")[i]);
+		}
+		for (i = 0; i < document.querySelectorAll(".ytb-gallery").length; i++) {
+			ytbGallery(document.querySelectorAll(".ytb-gallery")[i]);
+		}
+	</script>
 </body>
 </html>

@@ -14,6 +14,10 @@
 	font-weight: normal;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	margin: 0;
 }
@@ -37,11 +41,13 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+	background-attachment: fixed;
 }
 
 #landing {
 	position: relative;
-	width: 100%; height: 109.2vh;
+	width: 100%; height: 100vh;
+	padding-bottom: 18.4vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -106,13 +112,95 @@ body {
 	border-radius: 100px;
 	background-color: rgba(255, 255, 255, 0.5);
 	font-size: 4vh;
-	transition: backgroun .5;
+	transition: background .5s, border .5s;
+	border: 1px solid transparent;
 }
 
 #landing nav ul li a:hover {
 	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid black;
 }
 
+#landing .socials {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0; padding: 0;
+	position: absolute; top: -18.4vh; bottom: 0; right: 5px;
+}
+
+#landing .socials a {
+	margin: 5px 0;
+}
+
+#landing .socials a i {
+	font-size: 3em;
+	color: #fff;
+	transition: color .25s;
+}
+
+#landing .socials a:hover i.fa-youtube {
+	color: #ff0000;
+}
+#landing .socials a:hover i.fa-facebook {
+	color: #3b5998;
+}
+#landing .socials a:hover i.fa-instagram {
+	color: #e1306c;
+}
+
+
+
+/* Réalisations */
+
+#realisations {
+	margin-bottom: 30px;
+}
+
+#realisations h1 {
+	margin-bottom: 30px;
+}
+
+#realisations .img-gallery {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 0; padding: 0;
+}
+
+#realisations .img-gallery .item {
+	width: calc(18vw - 10px); height: calc(18vw - 10px);
+	display: block;
+	margin: 5px;
+	object-fit: cover;
+	transition: transform .5s;
+}
+#realisations .img-gallery .item:hover {
+	transform: scale(1.1);
+	z-index: 1;
+}
+
+#realisations .img-gallery .item:nth-child(8n+4), #realisations .img-gallery .item:nth-child(8n+5) {
+	width: calc(36vw - 10px);
+}
+
+#realisations .ytb-gallery {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 0; padding: 0; margin-bottom: 30px;
+}
+
+#realisations .ytb-gallery .item {
+	width: calc(30vw - 10px); height: calc(16.9vw - 10px);
+	margin: 5px;
+	border: none;
+}
 
 
 
@@ -122,48 +210,102 @@ body {
 	position: relative;
 }
 
-#prestations h1 {
-	position: absolute;
-	top: 0; left: 0; right: 0;
+section h1 {
 	text-align: center;
 	font-family: 'Cinzel';
-	font-size: 7vh;
+	font-size: 3em;
 	font-weight: normal;
 	margin: 0;
 }
 
-#film-institutionnel {
-	background-image: url('assets/cala-beltran.jpg');
+#prestation h1 {
+	position: absolute;
+	top: 5px; left: 0; right: 0;
+}
+
+.prestation {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	mask: url('assets/mask.svg') 0 0 / 100% 100%;
-	-webkit-mask: url('assets/mask.svg') 0 0 / 100% 100%;
+	background-attachment: fixed;
+	mask: url('assets/mask.svg#mask') 0 0 / 100% 100%;
+	-webkit-mask: url('assets/mask.svg#mask') 0 0 / 100% 100%;
 	padding: 20px 0;
 	height: 80vh;
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.prestation:nth-child(even) {
+	align-items: flex-start;
+}
+.prestation:nth-child(odd) {
+	align-items: flex-end;
 }
 
-#film-institutionnel .content {
-	background: rgba(255, 255, 255, 0.5);
+#film-institutionnel {
+	background-image: url('assets/cala-beltran.jpg');
+}
+#film-publicitaire {
+	background-image: url('assets/marais-salant-soir.jpg');
+}
+#film-evenementiel {
+	background-image: url('assets/merquel-phare.jpg');
+}
+
+.prestation .content {
 	margin-top: auto; margin-bottom: auto;
-	mask: url('assets/mask2.svg') 0 0 / 100% 100%;
-	-webkit-mask: url('assets/mask2.svg') 0 0 / 100% 100%;
-	padding: 40px; padding-right: 5vw;
-	width: 44vw; height: 25vw;
+	background: rgba(255, 255, 255, 0.5);
+	padding: 40px;
+	width: 44vw;
+}
+.prestation:nth-child(even) .content {
+	border-radius: 0 100% 100% 0;
+	padding-right: 5vw;
+}
+.prestation:nth-child(odd) .content {
+	border-radius: 100% 0 0 100%;
+	padding-left: 80px; padding-bottom: 5vw; padding-top: 3vw
 }
 
-#film-institutionnel .content h2 {
+.prestation .content h2 {
 	font-family: 'CaviarDreams';
 	font-size: 7vh;
 	font-weight: normal;
 	margin: 0;
 	width: 10px;
 }
+.prestation:nth-child(odd) .content h2 {
+	margin-left: 40px;
+}
 
-#film-institutionnel .content p {
+.prestation .content p {
 	font-family: calibri;
 	font-size: 1.5em;
 	font-weight: normal;
-	margin: 0; margin-top: 20px; margin-left: 40px;
+	margin: 0; margin-top: 20px;
+}
+.prestation:nth-child(even) .content p {
+	margin-left: 40px;
+}
+
+
+
+/* Footer */
+
+footer {
+	background-color: #fff;
+	padding: 20px 0;
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 0 5px 0 #696969;
+}
+
+footer p {
+	margin: 0;
+	font-family: 'CaviarDreams';
+	font-size: 1em;
 }
