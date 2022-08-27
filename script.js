@@ -7,7 +7,7 @@ function imgGallery(gallery) {
     const subDirectory = gallery.getAttribute('data-subdirectory');
     for (i = 1; i <= imgNb; i++) {
         var img = document.createElement("img");
-        img.src = "assets/" + subDirectory + i + ".jpg";
+        img.src = "assets/" + subDirectory + i + ".webp";
         img.classList.add("item", "apparition-anim", "zoomopa");
         img.loading = "lazy";
         gallery.appendChild(img);
