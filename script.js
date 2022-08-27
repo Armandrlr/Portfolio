@@ -36,5 +36,9 @@ function sleep(milliseconds) {
 }
 
 function isInViewport(elmt) {
-    return (elmt.getBoundingClientRect().top + window.scrollY) >= (window.scrollY + window.innerHeight) ? false : true;
+    if (elmt.innerHeight > window.innerHeight*.8) {
+        return (elmt.getBoundingClientRect().top <= window.innerHeight*.05) && (elmt.getBoundingClientRect().bottom >= window.innerHeight) ? true : false;
+    } else {
+        return (elmt.getBoundingClientRect().top <= window.innerHeight*.65) && (elmt.getBoundingClientRect().bottom >= window.innerHeight*.25) ? true : false;
+    }
 }

@@ -20,7 +20,7 @@
 		<nav>
 			<ul>
 				<li><a href="#realisations">Réalisations</a></li>
-				<li><a href="#competences">Contact</a></li>
+				<li><a href="#contact">Contact</a></li>
 				<li><a href="#prestations">Prestations</a></li>
 			</ul>
 		</nav>
@@ -59,6 +59,15 @@
 		</div>
 	</section>
 
+	<section id="contact">
+		<h1>Me contacter</h1>
+		<ul>
+			<li><i class="fa-solid fa-envelope"></i> armand.roulier@gmail.com</li>
+			<li><i class="fa-brands fa-instagram"></i> @fraudon6</li>
+			<li><i class="fa-brands fa-facebook"></i> @armandroulier</li>
+		</ul>	
+	</section>
+
 	<footer>
 		<p>&copy;2022 - Armand Roulier</p>
 		<p>Développé avec ❤ par Mathurin Roulier</p>	
@@ -78,9 +87,6 @@
 			for (i = 0; i < document.querySelectorAll(".apparition-anim").length; i++) {
 				if (isInViewport(document.querySelectorAll(".apparition-anim")[i])) {
 					document.querySelectorAll(".apparition-anim")[i].classList.add("visible");
-				}
-				else {
-					document.querySelectorAll(".apparition-anim")[i].classList.remove("visible");
 				}
 			}
 		});

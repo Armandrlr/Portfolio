@@ -38,7 +38,7 @@ body {
 
 #landing {
 	background-color: #fff;
-	background-image: url('assets/toul-ru.jpg');
+	background-image: url('assets/toul-ru.webp');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -297,13 +297,13 @@ section h1 {
 }
 
 #film-institutionnel {
-	background-image: url('assets/cala-beltran.jpg');
+	background-image: url('assets/cala-beltran.webp');
 }
 #film-publicitaire {
-	background-image: url('assets/marais-salant-soir.jpg');
+	background-image: url('assets/marais-salant-soir.webp');
 }
 #film-evenementiel {
-	background-image: url('assets/merquel-phare.jpg');
+	background-image: url('assets/merquel-phare.webp');
 }
 
 .prestation .content {
@@ -351,6 +351,12 @@ section h1 {
 }
 .prestation:nth-child(even) .content p {
 	margin-left: 40px;
+}
+
+/* Contact */
+
+#contact li {
+	list-style: none;
 }
 
 
