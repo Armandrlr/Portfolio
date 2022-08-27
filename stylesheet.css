@@ -16,6 +16,7 @@
 
 html {
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 body {
@@ -67,21 +68,39 @@ body {
 	font-weight: normal;
 	margin: 0;
 	text-align: center;
+	overflow-x: hidden;
+	transform: scale(0);
+}
+#landing.visible h1 {
+	transform: scale(1);
+	transition: transform .5s ease-in-out;
 }
 
 #landing .title hr {
 	border: none;
 	border-top: .75vh solid white;
-	margin: 10px 0; margin-left: -25%;
-	width: 150%;
+	margin: 10px 0; margin-left: 50%;
+	width: 0;
+}
+#landing.visible .title hr {
+	width: 150%; margin-left: -25%;
+	transition: width .5s ease-in-out, margin-left .5s ease-in-out;
+	transition-delay: .5s;
 }
 
 #landing h2 {
 	font-family: 'CaviarDreams';
 	font-size: 10vh;
 	font-weight: normal;
-	margin: 0;
+	margin: 0 auto;
 	text-align: center;
+	width: 0; overflow: hidden;
+	white-space: nowrap;
+}
+#landing.visible h2 {
+	width: 100%;
+	transition: width .5s ease-in-out, margin .5s ease-in-out;
+	transition-delay: 1s;
 }
 
 #landing .subtitle {
@@ -90,6 +109,14 @@ body {
 	color: #fff;
 	text-align: center;
 	margin: 0;
+	opacity: 0;
+	transform: translateY(-3vh);
+}
+#landing.visible .subtitle {
+	opacity: 1;
+	transform: translateY(0);
+	transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+	transition-delay: 1.5s;
 }
 
 #landing nav ul {
@@ -102,6 +129,14 @@ body {
 
 #landing nav ul li {
 	margin: 0 10px;
+	opacity: 0;
+	transform: translateY(20vh);
+}
+#landing nav ul li.visible {
+	opacity: 1;
+	transform: translateY(0);
+	transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+	transition-delay: 2s;
 }
 
 #landing nav ul li a {
@@ -132,6 +167,14 @@ body {
 
 #landing .socials a {
 	margin: 5px 0;
+	opacity: 0;
+	transform: translateX(3em);
+}
+#landing .socials a.visible {
+	opacity: 1;
+	transform: translateX(0);
+	transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+	transition-delay: 2s;
 }
 
 #landing .socials a i {
@@ -150,7 +193,17 @@ body {
 	color: #e1306c;
 }
 
+/* Animation */
 
+.apparition-anim.zoomopa {
+	transform: scale(0);
+	opacity: 0;
+}
+.apparition-anim.zoomopa.visible {
+	opacity: 1;
+	transform: scale(1);
+	transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+}
 
 /* Réalisations */
 
@@ -263,9 +316,20 @@ section h1 {
 	border-radius: 0 100% 100% 0;
 	padding-right: 5vw;
 }
+.prestation:nth-child(even) .content.apparition-anim {
+	transform: translateX(-60vw);
+	transition: transform .5s;
+}
 .prestation:nth-child(odd) .content {
 	border-radius: 100% 0 0 100%;
 	padding-left: 80px; padding-bottom: 5vw; padding-top: 3vw
+}
+.prestation:nth-child(odd) .content.apparition-anim {
+	transform: translateX(60vw);
+	transition: transform .5s;
+}
+.prestation .content.apparition-anim.visible {
+	transform: translateX(0);
 }
 
 .prestation .content h2 {

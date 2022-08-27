@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="stylesheet.css">
 	<title>Fraudon</title>
 </head>
-<body>
+<body onload="loaded();">
 	<section id="landing">
 		<p class="subtitle">Photographe / Vidéaste / Pilote de drones</p>
 		<div class="title">
@@ -40,19 +40,19 @@
 	<section id="prestations">
 		<h1>Prestations</h1>
 		<div id="film-institutionnel" class="prestation">
-			<div class="content">
+			<div class="content apparition-anim">
 				<h2>Film Institutionnel</h2>
 				<p>Présentez votre entreprise pour vous faire connaître ou gagner en notoriété sur vos différents canaux de communication, les médias et les événements.</p>
 			</div>
 		</div>
 		<div id="film-publicitaire" class="prestation">
-			<div class="content">
+			<div class="content apparition-anim">
 				<h2>Film Publicitaire</h2>
 				<p>Pilier de votre stratégie marketing, cette vidéo promeut votre activité et vos offres lors de salons, sur vos pages de vente et/ou sur vos réseaux sociaux.</p>
 			</div>
 		</div>
 		<div id="film-evenementiel" class="prestation">
-			<div class="content">
+			<div class="content apparition-anim">
 				<h2>Film Événementiel</h2>
 				<p>En amont, le teaser suscite l’envie de participer à votre événement. Prolongez-le avec un aftermovie pour marquer les esprits et faire parler de vous.</p>
 			</div>
@@ -65,11 +65,50 @@
 	</footer>
 
 	<script>
+
 		for (i = 0; i < document.querySelectorAll(".img-gallery").length; i++) {
 			imgGallery(document.querySelectorAll(".img-gallery")[i]);
 		}
 		for (i = 0; i < document.querySelectorAll(".ytb-gallery").length; i++) {
 			ytbGallery(document.querySelectorAll(".ytb-gallery")[i]);
+		}
+		
+		window.addEventListener("scroll", function() {
+			// add .visible class to .item when it is in the viewport
+			for (i = 0; i < document.querySelectorAll(".apparition-anim").length; i++) {
+				if (isInViewport(document.querySelectorAll(".apparition-anim")[i])) {
+					document.querySelectorAll(".apparition-anim")[i].classList.add("visible");
+				}
+				else {
+					document.querySelectorAll(".apparition-anim")[i].classList.remove("visible");
+				}
+			}
+		});
+
+		function loaded() {
+			document.querySelector("#landing").classList.add("visible");
+
+			i = 0;
+			nav = setInterval(function() {
+				if(i < document.querySelectorAll("#landing nav ul li").length) {
+					document.querySelectorAll("#landing nav ul li")[i].classList.add("visible");
+				}
+				i++;
+			}, 250);
+			if(i > document.querySelectorAll("#landing nav ul li").length) {
+				clearInterval(nav);
+			}
+
+			j = 0;
+			socials = setInterval(function() {
+				if(j < document.querySelectorAll("#landing .socials a").length) {
+					document.querySelectorAll("#landing .socials a")[j].classList.add("visible");
+				}
+				j++;
+			}, 250);
+			if(j > document.querySelectorAll("#landing .socials a").length) {
+				clearInterval(socials);
+			}
 		}
 	</script>
 </body>

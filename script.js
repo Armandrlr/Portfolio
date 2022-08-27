@@ -8,7 +8,7 @@ function imgGallery(gallery) {
     for (i = 1; i <= imgNb; i++) {
         var img = document.createElement("img");
         img.src = "assets/" + subDirectory + i + ".jpg";
-        img.classList = "item";
+        img.classList.add("item", "apparition-anim", "zoomopa");
         img.loading = "lazy";
         gallery.appendChild(img);
     }
@@ -22,7 +22,19 @@ function ytbGallery(gallery) {
         ytbVideo.frameborder = "0";
         ytbVideo.allowfullscreen = "true";
         ytbVideo.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-        ytbVideo.classList = "item";
+        ytbVideo.classList.add("item", "apparition-anim", "zoomopa");
         gallery.appendChild(ytbVideo);
     }
+}
+
+function sleep(milliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+        currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+}
+
+function isInViewport(elmt) {
+    return (elmt.getBoundingClientRect().top + window.scrollY) >= (window.scrollY + window.innerHeight) ? false : true;
 }
