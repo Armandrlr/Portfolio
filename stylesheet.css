@@ -16,7 +16,6 @@
 
 html {
 	scroll-behavior: smooth;
-	overflow-x: hidden;
 }
 
 body {
@@ -162,22 +161,26 @@ body {
 	justify-content: center;
 	align-items: center;
 	margin: 0; padding: 0;
-	position: absolute; top: -18.4vh; bottom: 0; right: 5px;
+	position: absolute; top: -18.4vh; bottom: 0; right: 0;
 }
 
 #landing .socials a {
+	text-decoration: none;
+	display: flex;
+	height: 3em; width: 4em;
 	margin: 5px 0;
+	margin-right: -4em;
 	opacity: 0;
-	transform: translateX(3em);
 }
 #landing .socials a.visible {
 	opacity: 1;
-	transform: translateX(0);
-	transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+	margin-right: 10px;
+	transition: opacity .5s ease-in-out, margin-right .5s ease-in-out;
 	transition-delay: 2s;
 }
 
 #landing .socials a i {
+	margin:auto;
 	font-size: 3em;
 	color: #fff;
 	transition: color .25s;
@@ -198,11 +201,11 @@ body {
 .apparition-anim.zoomopa {
 	transform: scale(0);
 	opacity: 0;
+	transition: opacity .5s ease-in-out, transform .5s ease-in-out;
 }
 .apparition-anim.zoomopa.visible {
 	opacity: 1;
 	transform: scale(1);
-	transition: opacity .5s ease-in-out, transform .5s ease-in-out;
 }
 
 /* Réalisations */
@@ -229,7 +232,6 @@ body {
 	display: block;
 	margin: 5px;
 	object-fit: cover;
-	transition: transform .5s;
 }
 #realisations .img-gallery .item:hover {
 	transform: scale(1.1);

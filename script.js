@@ -39,6 +39,6 @@ function isInViewport(elmt) {
     if (elmt.innerHeight > window.innerHeight*.8) {
         return (elmt.getBoundingClientRect().top <= window.innerHeight*.05) && (elmt.getBoundingClientRect().bottom >= window.innerHeight) ? true : false;
     } else {
-        return (elmt.getBoundingClientRect().top <= window.innerHeight*.65) && (elmt.getBoundingClientRect().bottom >= window.innerHeight*.25) ? true : false;
+        return (elmt.getBoundingClientRect().top <= window.innerHeight*.75) && (elmt.getBoundingClientRect().bottom >= window.innerHeight*.25) ? true : false;
     }
 }
