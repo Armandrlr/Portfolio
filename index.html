@@ -95,11 +95,16 @@
 			document.querySelector("#landing").classList.add("visible");
 
 			i = 0;
+			console.log(document.querySelectorAll("#landing nav ul li").length);
 			nav = setInterval(function() {
+				console.log("nav interval started " + i);
 				if(i < document.querySelectorAll("#landing nav ul li").length) {
 					document.querySelectorAll("#landing nav ul li")[i].classList.add("visible");
 				}
 				i++;
+				if(i > document.querySelectorAll("#landing nav ul li").length) {
+					clearInterval(nav);
+				}
 			}, 250);
 			if(i > document.querySelectorAll("#landing nav ul li").length) {
 				clearInterval(nav);
@@ -107,12 +112,16 @@
 
 			j = 0;
 			socials = setInterval(function() {
+				console.log("socials interval started " + j);
 				if(j < document.querySelectorAll("#landing .socials a").length) {
 					document.querySelectorAll("#landing .socials a")[j].classList.add("visible");
 				}
 				j++;
+				if(j > document.querySelectorAll("#landing .socials a").length) {
+					clearInterval(socials);
+				}
 			}, 250);
-			if(j > document.querySelectorAll("#landing .socials a").length) {
+			if(i > document.querySelectorAll("#landing .socials a").length) {
 				clearInterval(socials);
 			}
 		}
