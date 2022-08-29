@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" style="width: 100%; overflow-x: hidden; margin: 0;">
+<html lang="fr">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,11 +61,11 @@
 
 	<section id="contact">
 		<h1>Me contacter</h1>
-		<ul>
-			<li><i class="fa-solid fa-envelope"></i> armand.roulier@gmail.com</li>
-			<li><i class="fa-brands fa-instagram"></i> @fraudon6</li>
-			<li><i class="fa-brands fa-facebook"></i> @armandroulier</li>
-		</ul>	
+		<table>
+			<tr><td><i class="fa-solid fa-envelope"></i> E-mail</td><td>armand.roulier[at]gmail.com</td></tr>
+			<tr><td><i class="fa-brands fa-instagram"></i> Instagram</td><td>@fraudon6</td></tr>
+			<tr><td><i class="fa-brands fa-facebook"></i> Facebook</td><td>@armandroulier</td></tr>
+		</table>	
 	</section>
 
 	<footer>
@@ -94,7 +94,7 @@
 		function loaded() {
 			document.querySelector("#landing").classList.add("visible");
 
-			i = 0;
+			let i = 0;
 			console.log(document.querySelectorAll("#landing nav ul li").length);
 			nav = setInterval(function() {
 				console.log("nav interval started " + i);
@@ -108,9 +108,10 @@
 			}, 250);
 			if(i > document.querySelectorAll("#landing nav ul li").length) {
 				clearInterval(nav);
+				i = 0;
 			}
 
-			j = 0;
+			let j = 0;
 			socials = setInterval(function() {
 				console.log("socials interval started " + j);
 				if(j < document.querySelectorAll("#landing .socials a").length) {
@@ -123,6 +124,7 @@
 			}, 250);
 			if(i > document.querySelectorAll("#landing .socials a").length) {
 				clearInterval(socials);
+				j = 0;
 			}
 		}
 	</script>
