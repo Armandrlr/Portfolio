@@ -1,5 +1,5 @@
 playlist = {
-    "realisations" : [ "4yiW1aP_2Lo", "tLL7XkWPZtg", "JZem3PIYgAo", "A4cs8PNlGM8", "36EDenQFAjA", "rUqKkG3qsc0" ]
+    "realisations" : [ "4yiW1aP_2Lo", "tLL7XkWPZtg", "JZem3PIYgAo", "A4cs8PNlGM8", "36EDenQFAjA", "rUqKkG3qsc0", "4yiW1aP_2Lo", "tLL7XkWPZtg", "JZem3PIYgAo"]
 }
 
 function imgGallery(gallery) {
