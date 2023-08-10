@@ -54,7 +54,7 @@ body {
 
 #landing h1 {
 	font-family: 'Sarkowik';
-	font-size: 20vh;
+	font-size: 18vh;
 	font-weight: normal;
 	margin: 0;
 	text-align: center;
@@ -73,7 +73,7 @@ body {
 	width: 0;
 }
 #landing.visible .title hr {
-	width: 150%; margin-left: -25%;
+	width: 150%; margin-left: 0;
 	transition: width .5s ease-in-out, margin-left .5s ease-in-out;
 	transition-delay: .5s;
 }
