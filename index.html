@@ -8,27 +8,26 @@
 	<script src="script.js"></script>
 	<link rel="stylesheet" href="stylesheet.css">
 	<link rel="icon" href="assets/favicon.png">
+	<link rel="preload" as="image" href="assets/toul-ru.webp" onload="loaded();">
 	<title>Atlantic Video</title>
 </head>
-<body onload="loaded();">
+<body>
+	<nav>
+		<ul>
+			<li class="goto-top"><a href="#"><i class="fa-solid fa-chevron-up"></i></a></li>
+			<li><a href="#realisations"><span>Réalisations</span></a></li>
+			<li><a href="#prestations"><span>Prestations</span></a></li>
+			<li><a href="#contact"><span>Contact</span></a></li>
+		</ul>
+	</nav>
+
 	<section id="landing">
+		<div class="backdrop"></div>
 		<p class="subtitle">Photographe / Vidéaste / Pilote de drones</p>
 		<div class="title">
 			<h1>Atlantic Video</h1>
 			<hr>
 			<h2>Armand Roulier</h2>
-		</div>
-		<nav>
-			<ul>
-				<li><a href="#realisations">Réalisations</a></li>
-				<li><a href="#contact">Contact</a></li>
-				<li><a href="#prestations">Prestations</a></li>
-			</ul>
-		</nav>
-		<div class="socials">
-			<a href="https://www.facebook.com/profile.php?id=100079093530784" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-			<a href="https://instagram.com/la_cap_horniere" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-			<a href="https://youtube.com/channel/UCw1JjkUTXC7I7khiAYZ77RA" target="_blank"><i class="fa-brands fa-youtube"></i></a>
 		</div>
 	</section>
 	
@@ -66,11 +65,17 @@
 			<tr><td><i class="fa-solid fa-envelope"></i> E-mail</td><td>armand.roulier[at]gmail.com</td></tr>
 			<tr><td><i class="fa-brands fa-instagram"></i> Instagram</td><td>@fraudon6</td></tr>
 			<tr><td><i class="fa-brands fa-facebook"></i> Facebook</td><td>@armandroulier</td></tr>
-		</table>	
+		</table>
+		
+		<div class="socials">
+			<a href="https://www.facebook.com/profile.php?id=100079093530784" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+			<a href="https://instagram.com/la_cap_horniere" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+			<a href="https://youtube.com/channel/UCw1JjkUTXC7I7khiAYZ77RA" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+		</div>
 	</section>
 
 	<footer>
-		<p>&copy;2022 - Armand Roulier</p>
+		<p>&copy;2022-2023 - Armand Roulier</p>
 		<p>Développé avec ❤ par Mathurin Roulier</p>	
 	</footer>
 
@@ -84,21 +89,53 @@
 		}
 		
 		window.addEventListener("scroll", function() {
-			// add .visible class to .item when it is in the viewport
-			for (i = 0; i < document.querySelectorAll(".apparition-anim").length; i++) {
-				if (isInViewport(document.querySelectorAll(".apparition-anim")[i])) {
-					document.querySelectorAll(".apparition-anim")[i].classList.add("visible");
+			var elmts = document.querySelectorAll(".prestation");
+			for (i = 0; i < elmts.length; i++) {
+				var step = elmts[i].getBoundingClientRect().bottom / (window.innerHeight + elmts[i].offsetHeight);
+				elmts[i].style.setProperty("--step", 1+step*.4);
+			}
+
+			if (window.scrollY < 50) {
+				document.querySelector("body").classList.add("top");
+			}
+			else {
+				document.querySelector("body").classList.remove("top");
+			}
+
+			if (typeof oldScrollYPos !== 'undefined') {
+				let over = false;
+				if (window.scrollY > oldScrollYPos) {
+					for (i = document.querySelectorAll("nav ul li").length-1; i > 0; i--) {
+						if ( isInViewport(document.querySelector(document.querySelectorAll("nav ul li a")[i].getAttribute("href"))) && !over ) {
+							document.querySelectorAll("nav ul li")[i].classList.add("current");
+							over = true;
+						}
+						else {
+							document.querySelectorAll("nav ul li")[i].classList.remove("current");
+						}
+					}
+				}
+				else {
+					for (i = 1; i < document.querySelectorAll("nav ul li").length; i++) {
+						if ( isInViewport(document.querySelector(document.querySelectorAll("nav ul li a")[i].getAttribute("href"))) && !over ) {
+							document.querySelectorAll("nav ul li")[i].classList.add("current");
+							over = true;
+						}
+						else {
+							document.querySelectorAll("nav ul li")[i].classList.remove("current");
+						}
+					}
 				}
 			}
+
+			oldScrollYPos = window.scrollY;
 		});
 
 		function loaded() {
 			document.querySelector("#landing").classList.add("visible");
 
 			let i = 0;
-			console.log(document.querySelectorAll("#landing nav ul li").length);
 			nav = setInterval(function() {
-				console.log("nav interval started " + i);
 				if(i < document.querySelectorAll("#landing nav ul li").length) {
 					document.querySelectorAll("#landing nav ul li")[i].classList.add("visible");
 				}
@@ -110,22 +147,6 @@
 			if(i > document.querySelectorAll("#landing nav ul li").length) {
 				clearInterval(nav);
 				i = 0;
-			}
-
-			let j = 0;
-			socials = setInterval(function() {
-				console.log("socials interval started " + j);
-				if(j < document.querySelectorAll("#landing .socials a").length) {
-					document.querySelectorAll("#landing .socials a")[j].classList.add("visible");
-				}
-				j++;
-				if(j > document.querySelectorAll("#landing .socials a").length) {
-					clearInterval(socials);
-				}
-			}, 250);
-			if(i > document.querySelectorAll("#landing .socials a").length) {
-				clearInterval(socials);
-				j = 0;
 			}
 		}
 	</script>
